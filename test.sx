@@ -1,0 +1,12 @@
+// Main entry point
+fun main (args) {
+    print ("Hello, World!");
+    x = 2;
+    y = 1;
+    if (y < x) {
+        print ("It works!");
+    } else {
+        print ("Something is wrong!");
+    }
+    return 0;
+}
