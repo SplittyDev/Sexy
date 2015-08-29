@@ -1,0 +1,42 @@
+=== GENERAL ===
+FunctionBody = "{", { Expression | FunctionBody }, "}"
+Identifer = Character, { Character | Digit }, ";"
+
+=== STATEMENTS ===
+IfStmt = "if", "(", Expression, ")", FunctionBody
+IfElseStmt = "elseif", "(", Expression, ")", FunctionBody
+ElseStmt = "else", FunctionBody
+IfBlock = IfStmt, { IfElseStmt }, [ ElseStmt ]
+SwitchBlock = "switch", "(", Identifier | Expression, ")", "{", { CaseStmt }, [ DefaultStmt ], "}"
+CaseStmt = "case", Identifier | Expression, ":", { Expression | FunctionBody }
+DefaultStmt = "default", ":", { Expression | FunctionBody }
+
+=== Operators ===
+Operator = BinOp | UnOp | LogicOp
+BinOp = Assignment | CompOp | BitOp | Additive | Multiplicative
+UnOp = "++" | "--", "~" | "!"
+Assignment = "=" | "+=" | "-=" | "*=" | "/=" | "%="
+CompOp = "<" | "<=" | ">" | ">=" | "==" | "!="
+BitOp = "&" | "|" | "^"
+Additive = "+" | "-"
+Multiplicative = "*" | "**" | "/"
+LogicOp = "&&" | "||"
+
+=== NUMBERS ===
+Digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+UpperHexDigit = "A" | "B" | "C" | "D" | "E" | "F"
+LowerHexDigit = "a" | "b" | "c" | "d" | "e" | "f"
+HexDigit = UpperHexDigit | LowerHexDigit
+Number = { Digit }
+HexNumber = "0x", { Digit | HexDigit }
+
+=== Characters ===
+UpperChar = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" |
+            "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" |
+            "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" |
+            "Y" | "Z"
+LowerChar = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" |
+            "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" |
+            "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" |
+            "y" | "z"
+Character = UpperChar | LowerChar
